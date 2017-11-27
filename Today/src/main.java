@@ -1,3 +1,19 @@
+/*
+  Used links:
+  Find file in folder
+  https://stackoverflow.com/questions/17697646/how-to-detect-if-a-filewith-any-extension-exist-in-java
+  https://stackoverflow.com/questions/5751335/using-file-listfiles-with-filenameextensionfilter
+  
+  CSV to XML with JAVA
+
+: https://stackoverflow.com/questions/12120055/conversion-of-csv-to-xml-with-java
+  https://stackoverflow.com/questions/47183982/converting-csv-file-to-kml
+  *
+  *
+  */
+
+
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
