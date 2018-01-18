@@ -1,3 +1,4 @@
+// in this class I will save data of SSID, MAC, Frequency and signal.
 
 public class Scan {
 
@@ -6,7 +7,7 @@ public class Scan {
 	public int Freq;
 	public int Signal;
 	
-	//בנאי שיוצר טיפוס מסוג scan
+	// constructor
 	public Scan(String ssid,String mac,int f,int s)
 	{
 	
@@ -16,6 +17,7 @@ public class Scan {
 		this.Signal=s;
 	}
 	
+	//print data as string.
 	@Override
 	public String toString()
 	{

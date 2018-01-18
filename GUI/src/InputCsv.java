@@ -1,3 +1,4 @@
+// this is the main class of the project (before GUI)
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -12,6 +13,8 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
+
+
 public class InputCsv {
 	
 	
@@ -23,10 +26,22 @@ public class InputCsv {
 	{
 		this.file=new File(path);
 	}
-	// 2 static var to deal with the ID problem of scanning device in wiggle wife file.
+	
+	
+	// ****FOR testing in different OS , Change path of INPUT and UOTPUT of the bellow*******
+	//INPUT PATH:
+	static String inputpath = "/Users/amihaitorgeman/Desktop/NewMatala/Input";
+	// OUTPUT PATH:
+	static String halfoutputpath = "/Users/amihaitorgeman/Desktop/NewMatala/Output/";
+
+	
+	
+	
+	static String outputpath = halfoutputpath +"outputCSV.csv";
+	// 2 static var to deal with the ID problem of scanning device in wiglewife file.
 	static ArrayList<String> IDlist=new ArrayList<String>();
 	static ArrayList<Integer> IDsplit=new ArrayList<Integer>();
-	static String outputpath = "/Users/amihaitorgeman/Desktop/NewMatala/Output/outputfile.csv";
+	
 	
 	
 	// Read the wiggle wifi files and insert them to List of ArrayList String
@@ -123,7 +138,7 @@ public class InputCsv {
 		}
 		
 		
-		// sort to make each line sorted by signal strengh.
+		// sort to make each line sorted by signal strength.
 		bubbleSort(inputfiles);
 		return inputfiles;
 	}
@@ -144,7 +159,7 @@ public class InputCsv {
 			{
 				if(i==IDsplit.get(counter+1) & i!=0)
 				{
-					//by this if  i know when to switch to the next id
+					//by this, if i know when to switch to the next id
 					counter++;
 					ID=IDlist.get(counter);
 				}
@@ -249,15 +264,24 @@ public class InputCsv {
 	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		InputCsv test=new InputCsv("/Users/amihaitorgeman/Desktop/NewMatala/Input");
+		
+		//TESTING//
+		
+		
+		
+		InputCsv test=new InputCsv(inputpath);
 		List<ArrayList<String>> testlist=test.importfiles();
 		HashMap<position,List<Scan>> test2=test.makemap(testlist);
 		test.makefinaltable(test2);
+		
+		
 		//System.out.println(test2.size());
 //		System.out.println(testlist.size());
 		//System.out.println(IDlist);
 		//System.out.println(IDsplit);
 
+		
+		
 	}
 	
 	static void bubbleSort(List<ArrayList<String>> list)

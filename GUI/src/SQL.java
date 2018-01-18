@@ -1,3 +1,7 @@
+// This class  connect to server database to import new wifi address. 
+// all variables required for successful connection.
+
+
 
 public class SQL {
 	

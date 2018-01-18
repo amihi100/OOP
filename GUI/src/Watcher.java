@@ -1,5 +1,5 @@
-
-
+// this class handle the threads I created.
+// watching the input folder etc..
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;

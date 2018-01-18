@@ -1,3 +1,6 @@
+// in this class I will create the KML file.
+// line 30 is the output path of the file.
+// and line 179 is for testing path.
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -22,10 +25,15 @@ public class MakeKML {
 		this.path=path;
 	}
 	
-	static String kmloutputpath="/Users/amihaitorgeman/Desktop/NewMatala/Output/firstKML.kml";
+	// ****FOR testing in different OS , Change path of UOTPUT of the bellow******
+	//OUTPUT PATH:
+	static String halfkmloutputpath ="/Users/amihaitorgeman/Desktop/NewMatala/Output/";
 	
 	
-	/// מייבא מהמחשב את הקבוץ המיוחד ושם אותו ברשימה של רשימות 
+	
+	static String kmloutputpath = halfkmloutputpath + "outputKML.kml";
+
+	// import file from PC the and declare line as string and inserting strings list of ArrayLoist.
 	public List<ArrayList<String>> inputthefile()
 	{
 		List<ArrayList<String>> mylist=new ArrayList<ArrayList<String>>();
@@ -36,7 +44,7 @@ public class MakeKML {
 		int count=0;
 		
 		try {
-			
+			// read the file by buffer reader function.
 			br=new BufferedReader(new FileReader(csvfile));
 			while((line = br.readLine()) != null)
 			{
@@ -46,7 +54,7 @@ public class MakeKML {
 					count++;
 					continue;
 				}
-				else
+				else // we passed the headlines.
 				{
 					ArrayList<String> inside = new ArrayList<String>();
 					for(int i=0; i<input.length; i++)
@@ -128,7 +136,7 @@ public class MakeKML {
 		return mylist;
 	}
 	
-	// לוקח את הרשימה המפולטרת וכותב ממנה קובץ קיי אם אל
+	// using the filtered list and creating with it KML file:
 	public void writetoKML(List<ArrayList<String>> filteredlist) throws FileNotFoundException
 	{
 		final Kml kml=new Kml();
@@ -167,23 +175,27 @@ public class MakeKML {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
-		MakeKML test=new MakeKML("/Users/amihaitorgeman/Desktop/NewMatala/Output/first.csv");
+		MakeKML test=new MakeKML("/Users/amihaitorgeman/Desktop/NewMatala/Output/outputCSV.csv");
 		List<ArrayList<String>> test0=test.inputthefile();
-	//	System.out.println(test0.size());
+	
+		// TESTING // 
+		
+		
+		//System.out.println(test0.size());
 		//filters:
 		//filter by id: lenovo
-		Filters test2=new Filters(test0);
+		//Filters test2=new Filters(test0);
 	//	test2.FilterID("Lenovo", false);
 		//filter by time: 16:20:00-16:30:00
 		
 		// User must enter 00 as seconds.
-		test2.FilterTime("11:20:00", "13:30:00", true);
-		test0=test2.Data;
-		InputCsv test4=new InputCsv("/Users/amihaitorgeman/Desktop/NewMatala/Input");
-		test4.makefinaltable(test0);
-	//	test.writetoKML(test0);
+		//test2.FilterTime("11:20:00", "13:30:00", true);
+		///test0=test2.Data;
+		//InputCsv test4=new InputCsv("/Users/amihaitorgeman/Desktop/NewMatala/Input");
+		//test4.makefinaltable(test0);
+		test.writetoKML(test0);
 	}
-	
+	// Fixing the problem with time template (seconds  issue).
 	public static String TimeSet(String time)
 	{
 		if(time.length()==16)// no seconds

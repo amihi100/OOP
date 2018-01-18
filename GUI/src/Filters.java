@@ -3,7 +3,6 @@
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-
 public class Filters {
 
 	public List<ArrayList<String>> Data;
@@ -17,7 +16,7 @@ public class Filters {
 		this.Data=new ArrayList<ArrayList<String>>();
 	}
 	
-	//this function filter my data by range of locations
+	//this function filter my data by range of locations  
 	public void FilterLoc(double latmin,double latmax,double lonmin,double lonmax,double altmin,double altmax,boolean not)
 	{
 		List<ArrayList<String>> myans=new ArrayList<ArrayList<String>>();
@@ -51,7 +50,7 @@ public class Filters {
 		}
 	}
 	
-	//this function filter my data by ID name
+	//this function filter my data by ID name  
 	public void FilterID(String ID,boolean not)
 	{
 		List<ArrayList<String>> myans=new ArrayList<ArrayList<String>>();

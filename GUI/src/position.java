@@ -1,4 +1,4 @@
-
+// in this class I will save data of latitude, longitude, altitude , ID and time.
 public class position {
 	
 
@@ -46,7 +46,7 @@ public class position {
 		return true;
 	}
 
-	// constuctur for type of position.
+	// constructor for type of position.
 	public position(double lat,double lon,double alt,String id, String time)
 	{
 		this.Lat=lat;
@@ -56,7 +56,7 @@ public class position {
 		this.Time=time;
 	}
 	
-	//cבודק׳ אם מיקום שווה
+	// check if position is equal
 	public boolean equalposition(position P)
 	{
 		if(this.Lat==P.Lat & this.Lon==P.Lon & this.Alt==P.Alt)
@@ -115,7 +115,7 @@ public class position {
 	}
 	
 	
-	// מרחק בן 2 נקו׳
+	// Calculate the distance bt position.
 	public double Distance(position P)
 	{
 		double plat=Math.pow(this.Lat-P.Lat, 2);

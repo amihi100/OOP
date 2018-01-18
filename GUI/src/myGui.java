@@ -65,7 +65,7 @@ public class myGui extends Thread {
 	static boolean timenotbox=false;
 	static boolean locationnotbox=false;
 	static boolean idnotbox=false;
-	static String outputpath = "/Users/amihaitorgeman/Desktop/NewMatala/Output/outputfile.csv";
+	static String outputpath = "/Users/amihaitorgeman/Desktop/NewMatala/Output/outputCSV.csv";
 	
 	static boolean TerminateThread=false;
 	static Thread thread1;
@@ -87,7 +87,7 @@ public class myGui extends Thread {
 			myGui window = new myGui();
 			window.open();
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 	}
 
@@ -117,15 +117,17 @@ public class myGui extends Thread {
 	protected void createContents() {
 		shlOopApplication = new Shell();
 		shlOopApplication.setBackground(SWTResourceManager.getColor(SWT.COLOR_LIST_SELECTION));
-		shlOopApplication.setSize(1000, 1000);
+		shlOopApplication.setSize(1005, 803);
 		shlOopApplication.setText("OOP application");
 		
 		FolderPath = new Text(shlOopApplication, SWT.BORDER);
 		FolderPath.setBounds(229, 55, 129, 19);
 		
 		Label lblGui = new Label(shlOopApplication, SWT.NONE);
-		lblGui.setBounds(238, 25, 59, 14);
-		lblGui.setText("GUI OOP");
+		lblGui.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLUE));
+		lblGui.setFont(SWTResourceManager.getFont(".AppleSystemUIFont", 28, SWT.BOLD | SWT.ITALIC));
+		lblGui.setBounds(392, 10, 238, 44);
+		lblGui.setText("GUI FOR FILTERS");
 		
 		Label lblFolder = new Label(shlOopApplication, SWT.NONE);
 		lblFolder.setBounds(179, 58, 59, 14);
@@ -158,7 +160,7 @@ public class myGui extends Thread {
 				}
 			}
 		});
-		btnAdd.setBounds(229, 80, 94, 28);
+		btnAdd.setBounds(229, 80, 114, 28);
 		btnAdd.setText("ADD FOLDER");
 		
 		Label lblCsvFile = new Label(shlOopApplication, SWT.NONE);
@@ -195,7 +197,7 @@ public class myGui extends Thread {
 				Glist.Data.clear();
 			}
 		});
-		btnDeleteData.setBounds(238, 190, 105, 28);
+		btnDeleteData.setBounds(229, 181, 120, 28);
 		btnDeleteData.setText("DELETE DATA");
 		
 		Label Entries = new Label(shlOopApplication, SWT.NONE);
@@ -215,13 +217,14 @@ public class myGui extends Thread {
 				Wifis.setText("WIFI's: "+ count.wificount(Glist.Data));
 			}
 		});
-		btnDisplayInfo.setBounds(10, 46, 105, 28);
+		btnDisplayInfo.setBounds(10, 46, 131, 28);
 		btnDisplayInfo.setText("DISPLAY INFO");
 		
 		Label lblNewLabel = new Label(shlOopApplication, SWT.NONE);
-		lblNewLabel.setFont(SWTResourceManager.getFont(".AppleSystemUIFont", 11, SWT.BOLD));
-		lblNewLabel.setBounds(264, 238, 59, 14);
-		lblNewLabel.setText("Fillters");
+		lblNewLabel.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLUE));
+		lblNewLabel.setFont(SWTResourceManager.getFont(".AppleSystemUIFont", 16, SWT.BOLD));
+		lblNewLabel.setBounds(264, 238, 79, 25);
+		lblNewLabel.setText("Fillters:");
 		
 		Button btnFillterByTime = new Button(shlOopApplication, SWT.CHECK);
 		btnFillterByTime.addSelectionListener(new SelectionAdapter() {
@@ -236,7 +239,7 @@ public class myGui extends Thread {
 				}
 			}
 		});
-		btnFillterByTime.setBounds(47, 266, 94, 18);
+		btnFillterByTime.setBounds(47, 266, 114, 18);
 		btnFillterByTime.setText("Filter by time");
 		
 		Button btnCheckButton = new Button(shlOopApplication, SWT.CHECK);
@@ -270,7 +273,7 @@ public class myGui extends Thread {
 				}
 			}
 		});
-		btnFillterByPosition.setBounds(418, 272, 113, 18);
+		btnFillterByPosition.setBounds(418, 272, 129, 18);
 		btnFillterByPosition.setText("Fillter by position");
 		
 		Button btnNo = new Button(shlOopApplication, SWT.CHECK);
@@ -428,6 +431,7 @@ public class myGui extends Thread {
 		btnWithout.setText("Without");
 		
 		Label CurrentFilter = new Label(shlOopApplication, SWT.NONE);
+		CurrentFilter.setFont(SWTResourceManager.getFont(".AppleSystemUIFont", 12, SWT.NORMAL));
 		CurrentFilter.setBounds(20, 569, 512, 19);
 		CurrentFilter.setText("Current Filter:");
 		
@@ -684,7 +688,7 @@ public class myGui extends Thread {
 
 			
 		});
-		btnActiveFilters.setBounds(10, 617, 94, 28);
+		btnActiveFilters.setBounds(10, 617, 114, 28);
 		btnActiveFilters.setText("Active Filters");
 		
 		Button btnResetFilters = new Button(shlOopApplication, SWT.NONE);
@@ -696,10 +700,11 @@ public class myGui extends Thread {
 				CurrentFilter.setText("Current Filter: reseted");
 			}
 		});
-		btnResetFilters.setBounds(10, 651, 94, 28);
+		btnResetFilters.setBounds(10, 651, 105, 28);
 		btnResetFilters.setText("Reset Filters");
 		
 		Button btnSaveCsvFile = new Button(shlOopApplication, SWT.NONE);
+		btnSaveCsvFile.setFont(SWTResourceManager.getFont(".AppleSystemUIFont", 26, SWT.BOLD));
 		btnSaveCsvFile.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -714,10 +719,11 @@ public class myGui extends Thread {
 				
 			}
 		});
-		btnSaveCsvFile.setBounds(10, 685, 94, 28);
+		btnSaveCsvFile.setBounds(351, 610, 219, 61);
 		btnSaveCsvFile.setText("Save CSV file");
 		
 		Button btnSaveKmlFile = new Button(shlOopApplication, SWT.NONE);
+		btnSaveKmlFile.setFont(SWTResourceManager.getFont(".AppleSystemUIFont", 26, SWT.BOLD));
 		btnSaveKmlFile.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -730,20 +736,22 @@ public class myGui extends Thread {
 				}
 			}
 		});
-		btnSaveKmlFile.setBounds(10, 714, 105, 28);
+		btnSaveKmlFile.setBounds(351, 677, 219, 65);
 		btnSaveKmlFile.setText("Save KML file");
 		
 		Label lblAlgorithms = new Label(shlOopApplication, SWT.NONE);
-		lblAlgorithms.setFont(SWTResourceManager.getFont(".AppleSystemUIFont", 13, SWT.BOLD | SWT.ITALIC));
-		lblAlgorithms.setBounds(756, 31, 105, 14);
+		lblAlgorithms.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLUE));
+		lblAlgorithms.setFont(SWTResourceManager.getFont(".AppleSystemUIFont", 16, SWT.BOLD));
+		lblAlgorithms.setBounds(727, 56, 115, 24);
 		lblAlgorithms.setText("ALGORITHMS");
 		
 		Label lblFirstAlgorithm = new Label(shlOopApplication, SWT.NONE);
-		lblFirstAlgorithm.setBounds(642, 100, 90, 14);
+		lblFirstAlgorithm.setFont(SWTResourceManager.getFont(".AppleSystemUIFont", 14, SWT.BOLD));
+		lblFirstAlgorithm.setBounds(642, 100, 90, 24);
 		lblFirstAlgorithm.setText("Algorithm 1");
 		
 		Label lblMacAddress = new Label(shlOopApplication, SWT.NONE);
-		lblMacAddress.setBounds(642, 133, 75, 14);
+		lblMacAddress.setBounds(642, 133, 90, 14);
 		lblMacAddress.setText("MAC address:");
 		
 		MacAlgo1 = new Text(shlOopApplication, SWT.BORDER);
@@ -766,7 +774,7 @@ public class myGui extends Thread {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				String Mac=MacAlgo1.getText();
-				Algorithems temp= new Algorithems(Glist.Data);
+				Algorithem temp= new Algorithem(Glist.Data);
 				Point answer=temp.MacLocation(Mac);
 				Algo1Lat.setText("Lat: "+answer.getLat());
 				Algo1Lon.setText("Lon: "+answer.getLon());
@@ -778,7 +786,8 @@ public class myGui extends Thread {
 		btnActive.setText("ACTIVE");
 		
 		Label lblAlgorithm = new Label(shlOopApplication, SWT.NONE);
-		lblAlgorithm.setBounds(642, 277, 75, 14);
+		lblAlgorithm.setFont(SWTResourceManager.getFont(".AppleSystemUIFont", 14, SWT.BOLD));
+		lblAlgorithm.setBounds(642, 277, 90, 19);
 		lblAlgorithm.setText("Algorithm 2");
 		
 		Label Algo2Lat = new Label(shlOopApplication, SWT.NONE);
@@ -807,14 +816,14 @@ public class myGui extends Thread {
 				array[0]=new Mac_Signal(mac1,signal1);
 				array[1]=new Mac_Signal(mac2,signal2);
 				array[2]=new Mac_Signal(mac3,signal3);
-				Algorithems temp2=new Algorithems(Glist.Data);
+				Algorithem temp2=new Algorithem(Glist.Data);
 				Point answer=temp2.GetUserLocation(array);
 				Algo2Lat.setText("Lat: "+answer.getLat());
 				Algo2Lon.setText("Lon: "+answer.getLon());
 				Algo2Alt.setText("Alt: "+answer.getAlt());
 			}
 		});
-		btnActive_1.setBounds(717, 272, 94, 28);
+		btnActive_1.setBounds(738, 273, 94, 28);
 		btnActive_1.setText("ACTIVE");
 		
 		Label lblMac = new Label(shlOopApplication, SWT.NONE);
@@ -873,7 +882,7 @@ public class myGui extends Thread {
 				}
 			}
 		});
-		btnKeepFilters.setBounds(168, 617, 94, 28);
+		btnKeepFilters.setBounds(168, 617, 105, 28);
 		btnKeepFilters.setText("Keep Filters");
 		
 		Button btnActiveKeptFilters = new Button(shlOopApplication, SWT.NONE);
@@ -885,12 +894,14 @@ public class myGui extends Thread {
 				//Todo  I need to ask here how to import saved filters.
 			}
 		});
-		btnActiveKeptFilters.setBounds(161, 651, 122, 28);
+		btnActiveKeptFilters.setBounds(161, 651, 145, 28);
 		btnActiveKeptFilters.setText("Active Kept Filters ");
 		
 		Label lblConnectToServer = new Label(shlOopApplication, SWT.NONE);
-		lblConnectToServer.setBounds(737, 499, 105, 14);
-		lblConnectToServer.setText("Connect to server");
+		lblConnectToServer.setForeground(SWTResourceManager.getColor(SWT.COLOR_BLUE));
+		lblConnectToServer.setFont(SWTResourceManager.getFont(".AppleSystemUIFont", 14, SWT.BOLD));
+		lblConnectToServer.setBounds(690, 499, 131, 19);
+		lblConnectToServer.setText("Connect to server:");
 		
 		Label lblInternetProtocol = new Label(shlOopApplication, SWT.NONE);
 		lblInternetProtocol.setBounds(627, 528, 105, 14);
@@ -913,23 +924,23 @@ public class myGui extends Thread {
 		lblDataBase.setText("Data Base:");
 		
 		Label lblTableName = new Label(shlOopApplication, SWT.NONE);
-		lblTableName.setBounds(631, 692, 59, 14);
+		lblTableName.setBounds(631, 692, 70, 14);
 		lblTableName.setText("Table name:");
 		
 		IP = new Text(shlOopApplication, SWT.BORDER);
-		IP.setBounds(734, 523, 127, 19);
+		IP.setBounds(728, 525, 127, 19);
 		
 		PORT = new Text(shlOopApplication, SWT.BORDER);
 		PORT.setText("");
-		PORT.setBounds(731, 549, 64, 19);
+		PORT.setBounds(727, 551, 64, 19);
 		
 		UserName = new Text(shlOopApplication, SWT.BORDER);
 		UserName.setText("");
-		UserName.setBounds(737, 584, 64, 19);
+		UserName.setBounds(727, 586, 64, 19);
 		
 		PASS = new Text(shlOopApplication, SWT.BORDER);
 		PASS.setText("");
-		PASS.setBounds(731, 612, 64, 19);
+		PASS.setBounds(727, 621, 64, 19);
 		
 		DataBase = new Text(shlOopApplication, SWT.BORDER);
 		DataBase.setText("");
@@ -937,7 +948,7 @@ public class myGui extends Thread {
 		
 		TableName = new Text(shlOopApplication, SWT.BORDER);
 		TableName.setText("");
-		TableName.setBounds(727, 680, 64, 19);
+		TableName.setBounds(727, 689, 64, 19);
 		
 		Button btnMergeData = new Button(shlOopApplication, SWT.NONE);
 		btnMergeData.addSelectionListener(new SelectionAdapter() {
@@ -988,7 +999,7 @@ public class myGui extends Thread {
 				}
 			}
 		});
-		btnMergeData.setBounds(717, 714, 94, 28);
+		btnMergeData.setBounds(717, 714, 104, 28);
 		btnMergeData.setText("Merge data");
 		
 		

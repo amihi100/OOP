@@ -1,3 +1,4 @@
+// in this class I will save data of SSID, MAC, Frequency and signal.
 
 public class Mac_Signal {
 	
@@ -10,6 +11,8 @@ public class Mac_Signal {
 		this.Mac=mac;
 	}
 	
+	
+	//constroctor for mac address with data not found.
 	public Mac_Signal(String Mac)
 	{
 		this.Mac=Mac;
