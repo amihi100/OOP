@@ -1,3 +1,7 @@
+// gui class, build with windows application.
+// FOR test  change  path at: line 71 :	static String outputpath = "/Users/amihaitorgeman/Desktop/NewMatala/Output/outputCSV.csv";
+
+
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Label;
