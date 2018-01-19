@@ -20,3 +20,4 @@ SQL.java
 https://stackoverflow.com/questions/2839321/connect-java-to-a-mysql-database
 whatcer.java
 https://gist.github.com/taichi/2508403
+https://www.eclipse.org/swt/
